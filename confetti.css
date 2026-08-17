@@ -1,0 +1,128 @@
+/* ==========================================================
+   CONFETTIS
+   ========================================================== */
+
+#confetti-container{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:4;
+
+}
+
+
+/* ==========================================================
+   UN CONFETTI
+   ========================================================== */
+
+.confetti{
+
+    position:absolute;
+
+    top:-20px;
+
+    opacity:.9;
+
+    border-radius:2px;
+
+    animation-name:confettiFall;
+
+    animation-timing-function:linear;
+
+    animation-iteration-count:infinite;
+
+}
+
+
+/* ==========================================================
+   COULEURS
+   ========================================================== */
+
+.gold{
+
+    background:#d4b16a;
+
+}
+
+.white{
+
+    background:#ffffff;
+
+}
+
+.cream{
+
+    background:#efe6d2;
+
+}
+
+.green{
+
+    background:#8aa37f;
+
+}
+
+
+/* ==========================================================
+   ANIMATION
+   ========================================================== */
+
+@keyframes confettiFall{
+
+    0%{
+
+        transform:
+            translate3d(0,-30px,0)
+            rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:.95;
+
+    }
+
+    25%{
+
+        transform:
+            translate3d(20px,25vh,0)
+            rotate(120deg);
+
+    }
+
+    50%{
+
+        transform:
+            translate3d(-20px,50vh,0)
+            rotate(240deg);
+
+    }
+
+    75%{
+
+        transform:
+            translate3d(15px,75vh,0)
+            rotate(300deg);
+
+    }
+
+    100%{
+
+        transform:
+            translate3d(-10px,110vh,0)
+            rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}

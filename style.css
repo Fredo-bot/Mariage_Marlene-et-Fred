@@ -1,0 +1,1157 @@
+/* ==========================================================
+   SITE DE MARIAGE
+   Marlène & Frédéric
+   CSS PROPRE
+   ========================================================== */
+
+
+/* ==========================================================
+   1. RESET
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f7f6f2;
+    color: #404040;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+picture {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* ==========================================================
+   2. VARIABLES
+   ========================================================== */
+
+:root {
+
+    --pink: #e91e63;
+    --pink-dark: #c2185b;
+
+    --orange: #f39c12;
+    --yellow: #f1c40f;
+
+    --cream: #fff8ed;
+    --white: #ffffff;
+
+    --text: #303030;
+
+    --shadow: 0 12px 30px rgba(0,0,0,.12);
+
+    --font-street: 'Sedgwick Ave Display', cursive;
+}
+
+
+/* ==========================================================
+   3. CONTENEUR
+   ========================================================== */
+
+.container {
+    width: min(90%, 1200px);
+    margin: auto;
+}
+
+
+/* ==========================================================
+   4. HERO
+   ========================================================== */
+
+#hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 8s ease;
+}
+
+.overlay {
+    background: transparent;
+}
+
+
+/* ==========================================================
+   5. NAVIGATION
+   ========================================================== */
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding: 30px 70px;
+
+    z-index: 20;
+    transition: .35s;
+}
+
+.logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.4rem;
+    color: white;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+nav a {
+    position: relative;
+
+    color: #000000;
+
+    font-family: 'Caveat Brush', cursive;
+    text-transform: uppercase;
+
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+
+    text-shadow:
+        1px 1px 0 #ffffff,
+       -1px -1px 0 #ffffff,
+        1px -1px 0 #ffffff,
+       -1px 1px 0 #ffffff;
+
+    transition: .3s;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--pink);
+
+    transition: .3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* ==========================================================
+   6. CONTENU HERO
+   ========================================================== */
+
+.hero-content {
+    position: absolute;
+
+    top: 75%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(92%, 900px);
+
+    text-align: center;
+    color: white;
+
+    z-index: 5;
+
+    animation: fadeHero .9s ease;
+}
+
+.subtitle {
+    text-transform: uppercase;
+
+    letter-spacing: clamp(2px, .5vw, 6px);
+    font-size: clamp(.75rem, 1vw, .9rem);
+}
+
+.hero-content h1 {
+    font-family: 'Sedgwick Ave Display', cursive;
+
+    font-weight: 400;
+
+    font-size: clamp(3rem, 6vw, 5.3rem);
+
+    line-height: 1.05;
+
+    margin: 18px 0;
+}
+
+.hero-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(1.4rem, 2vw, 2rem);
+
+    font-weight: 500;
+
+    margin-bottom: 14px;
+}
+
+.hero-content h3 {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+.hero-content h1,
+section h2,
+footer h2 {
+    text-wrap: balance;
+}
+
+
+/* ==========================================================
+   7. LIGNE DÉCORATIVE
+   ========================================================== */
+
+.gold-line {
+    width: 90px;
+    height: 2px;
+
+    background: var(--gold);
+
+    margin: 30px auto;
+}
+
+
+/* ==========================================================
+   8. BOUTONS
+   ========================================================== */
+
+.button {
+    margin: 55px auto 0;
+
+    width: 210px;
+    height: 54px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    border-radius: 40px;
+
+    background: transparent;
+    border: 2px solid var(--pink);
+
+    color: white;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.18);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.button:hover {
+    background: rgba(255,255,255,.15);
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 18px 40px rgba(0,0,0,.22);
+}
+
+
+/* ==========================================================
+   9. BOUTON RSVP
+   ========================================================== */
+
+.rsvp-button {
+    color: var(--pink);
+
+    text-align: center;
+
+    justify-content: center;
+    align-items: center;
+
+    line-height: 1;
+}
+
+
+/* ==========================================================
+   10. SECTIONS
+   ========================================================== */
+
+section {
+    padding: 100px 0;
+}
+
+section h2 {
+    font-family: 'Caveat Brush', cursive;
+
+    font-size: clamp(2.3rem, 4vw, 3.2rem);
+
+    font-weight: 600;
+
+    color: var(--green);
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+section p {
+    max-width: 760px;
+
+    margin: 20px auto;
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 1.05rem;
+
+    line-height: 1.9;
+
+    text-wrap: pretty;
+}
+
+
+/* ==========================================================
+   11. ORNEMENT
+   ========================================================== */
+
+.ornement {
+    text-align: center;
+
+    font-size: 2rem;
+
+    color: var(--gold);
+
+    margin-bottom: 22px;
+
+    transition: transform .35s ease;
+}
+
+.ornement:hover {
+    transform: rotate(10deg);
+}
+
+
+/* ==========================================================
+   12. ANNONCE
+   ========================================================== */
+
+#annonce {
+    background: #FFF3DD;
+}
+
+#annonce p {
+    max-width: 700px;
+}
+
+
+/* ==========================================================
+   13. COMPTE À REBOURS
+   ========================================================== */
+
+#countdown {
+    background: #E91E63;
+}
+
+#countdown h2 {
+    color: white;
+}
+
+.countdown {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+
+    max-width: 1100px;
+
+    margin: 60px auto 0;
+}
+
+.item {
+    background: rgba(255,255,255,.12);
+
+    backdrop-filter: blur(8px);
+
+    border-radius: 18px;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.item:hover {
+    transform: translateY(-6px);
+
+    background: rgba(255,255,255,.18);
+}
+
+.item span {
+    display: block;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: clamp(3rem, 4vw, 4rem);
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+    color: white;
+}
+
+.item small {
+    display: block;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: .8rem;
+}
+
+
+/* ==========================================================
+   14. INFORMATIONS
+   ========================================================== */
+
+#infos {
+    background: #FFF3DD;
+}
+
+
+/* ==========================================================
+   15. CARTES
+   ========================================================== */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 35px;
+
+    margin-top: 60px;
+}
+
+.card {
+    background: white;
+
+    padding: 45px 35px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+
+    cursor: default;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 22px 45px rgba(0,0,0,.12);
+}
+
+.card i {
+    font-size: 2.7rem;
+
+    color: #E91E63;
+
+    margin-bottom: 25px;
+
+    transition: transform .35s ease;
+}
+
+.card:hover i {
+    transform: scale(1.08);
+}
+
+.card h3 {
+    font-family: 'Caveat Brush', cursive;
+
+    color: #404040;
+
+    font-size: 2rem;
+
+    font-weight: 400;
+
+    margin-bottom: 18px;
+}
+
+.card p {
+    font-family: 'Montserrat', sans-serif;
+
+    color: #666;
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* ==========================================================
+   16. LIEN GOOGLE MAPS
+   ========================================================== */
+
+.map-link {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    color: var(--pink);
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.map-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================================
+   17. À VENIR
+   ========================================================== */
+
+#avenir {
+    background: #F2B705;
+}
+
+.future-list {
+    width: min(500px, 100%);
+
+    margin: 50px auto 0;
+}
+
+.future-list li {
+    padding: 18px 0;
+
+    border-bottom: 1px solid #e8e8e8;
+
+    text-align: center;
+
+    color: #666;
+
+    transition: .3s;
+}
+
+.future-list li:last-child {
+    border-bottom: none;
+}
+
+.future-list li:hover {
+    color: var(--green);
+
+    transform: translateX(5px);
+}
+
+
+/* ==========================================================
+   18. FOOTER
+   ========================================================== */
+
+footer {
+    background: #FFF3DD;
+
+    color: #404040;
+
+    text-align: center;
+
+    padding: 70px 20px 45px;
+}
+
+footer h2 {
+    font-family: 'Caveat Brush', cursive;
+
+    font-size: clamp(3rem, 5vw, 4.2rem);
+
+    font-weight: 400;
+
+    margin-bottom: 18px;
+
+    color: #404040;
+}
+
+footer p {
+    font-family: 'Montserrat', sans-serif;
+
+    margin: 12px 0;
+
+    color: #404040;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(64,64,64,.18);
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: .9rem;
+
+    letter-spacing: .5px;
+
+    color: #404040;
+}
+
+
+/* ==========================================================
+   19. ANIMATIONS
+   ========================================================== */
+
+.hidden {
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+@keyframes slideDown {
+
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeHero {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================================================
+   20. MENU FIXE AU SCROLL
+   ========================================================== */
+
+.nav-scroll {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    background: rgba(255,255,255,.96);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+
+    animation: slideDown .35s ease;
+
+    z-index: 999;
+}
+
+.nav-scroll .logo {
+    color: var(--green);
+}
+
+.nav-scroll a {
+    color: var(--text);
+}
+
+.nav-scroll a::after {
+    background: var(--green);
+}
+
+
+/* ==========================================================
+   21. RESPONSIVE — PETITS PORTABLES
+   ========================================================== */
+
+@media (max-width: 1400px) {
+
+    nav {
+        padding: 25px 40px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: .85rem;
+    }
+
+    .hero-content {
+        top: 47%;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(3rem, 5.5vw, 5rem);
+    }
+
+    .countdown {
+        gap: 18px;
+    }
+}
+
+
+/* ==========================================================
+   22. RESPONSIVE — PETITS ÉCRANS
+   ========================================================== */
+
+@media (max-width: 1200px) {
+
+    nav {
+        padding: 20px 30px;
+    }
+
+    nav ul {
+        gap: 16px;
+    }
+
+    .logo {
+        font-size: 2.2rem;
+    }
+
+    .hero-content {
+        top: 46%;
+    }
+
+    .cards {
+        gap: 25px;
+    }
+}
+
+
+/* ==========================================================
+   23. RESPONSIVE — TABLETTES
+   ========================================================== */
+
+@media (max-width: 992px) {
+
+    nav {
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 20px;
+    }
+
+    nav ul {
+        gap: 18px;
+    }
+
+    .hero-content {
+        top: 45%;
+    }
+
+    .hero-content h1 {
+        font-size: 3.8rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+
+        max-width: 650px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .countdown {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
+    }
+}
+
+
+/* ==========================================================
+   24. BOUTON DÉCOUVRIR — PETITS PC / TABLETTES
+   ========================================================== */
+
+@media (min-width: 769px) and (max-width: 1400px) {
+
+    .hero-content {
+        top: 0;
+        bottom: 0;
+
+        height: 100%;
+
+        transform: translateX(-50%);
+    }
+
+    .hero-content .button {
+        position: absolute;
+
+        left: 50%;
+        bottom: 6%;
+
+        margin: 0;
+
+        transform: translateX(-50%);
+    }
+
+    .hero-content .button:hover {
+        transform: translateX(-50%) translateY(-4px);
+    }
+}
+
+
+/* ==========================================================
+   25. RESPONSIVE — SMARTPHONE
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    #hero {
+        height: 100svh;
+        min-height: 0;
+    }
+
+    picture {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        object-position: center 30%;
+    }
+
+    /* Navigation */
+
+    nav {
+        padding: 20px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    /* Hero */
+
+    .hero-content {
+        top: 50%;
+
+        width: 92%;
+    }
+
+    .subtitle {
+        font-size: .72rem;
+
+        letter-spacing: 2px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+
+        margin: 15px 0;
+    }
+
+    .hero-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .hero-content h3 {
+        font-size: .9rem;
+
+        letter-spacing: 2px;
+    }
+
+    .gold-line {
+        margin: 22px auto;
+    }
+
+    /* Boutons */
+
+    .button {
+        width: 180px;
+
+        height: 46px;
+
+        margin-top: 35px;
+
+        font-size: .95rem;
+    }
+
+    /* Sections */
+
+    section {
+        padding: 70px 0;
+    }
+
+    section h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Informations */
+
+    #infos {
+        padding-top: 70px;
+    }
+
+    .cards {
+        gap: 20px;
+    }
+
+    .card {
+        padding: 35px 25px;
+    }
+
+    .card h3 {
+        font-size: 1.8rem;
+    }
+
+    .card i {
+        font-size: 2.3rem;
+    }
+
+    /* Compte à rebours */
+
+    .countdown {
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 8px;
+
+        padding: 0 10px;
+    }
+
+    .item {
+        padding: 15px 4px;
+
+        border-radius: 12px;
+    }
+
+    .item span {
+        font-size: 1.8rem;
+    }
+
+    .item small {
+        font-size: .62rem;
+
+        letter-spacing: 1px;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 70px 20px 45px;
+    }
+
+    footer h2 {
+        font-size: 3rem;
+    }
+}
+
+
+/* ==========================================================
+   26. RESPONSIVE — PETITS SMARTPHONES
+   ========================================================== */
+
+@media (max-width: 480px) {
+
+    .hero-content {
+        top: 80%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.6rem;
+    }
+
+    .subtitle {
+        font-size: .68rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.15rem;
+    }
+
+    .hero-content h3 {
+        font-size: .8rem;
+    }
+
+    .button {
+        width: 170px;
+
+        height: 44px;
+
+        margin-top: 28px;
+    }
+
+    .countdown {
+        gap: 6px;
+    }
+
+    .item {
+        padding: 12px 3px;
+    }
+
+    .item span {
+        font-size: 1.55rem;
+    }
+
+    .item small {
+        font-size: .58rem;
+    }
+}
+
+
+/* ==========================================================
+   27. ACCESSIBILITÉ
+   ========================================================== */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--gold);
+
+    outline-offset: 4px;
+}
+
+
+/* ==========================================================
+   28. SÉLECTION DE TEXTE
+   ========================================================== */
+
+::selection {
+    background: var(--green);
+
+    color: white;
+}
+
+
+/* ==========================================================
+   29. SCROLLBAR
+   ========================================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #efefef;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--green);
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--green-dark);
+}
+
+
+/* ==========================================================
+   30. IMPRESSION
+   ========================================================== */
+
+@media print {
+
+    nav,
+    .topbar,
+    .button {
+        display: none;
+    }
+}
+
+
+/* ==========================================================
+   FIN DU CSS
+   ========================================================== */
