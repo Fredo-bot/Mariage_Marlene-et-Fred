@@ -256,7 +256,7 @@ footer h2 {
 
     background: unset;
 
-    margin: 30px auto;
+    margin: 20px auto;
 }
 
 
@@ -301,12 +301,29 @@ footer h2 {
 }
 
 
+.hero-content .button {
+    background: rgba(0,0,0,.42);
+    box-shadow: 0 4px 14px rgba(0,0,0,.16);
+}
+
+.hero-content .button:hover {
+    background: rgba(0,0,0,.56);
+}
+
 /* ==========================================================
    9. BOUTON RSVP
    ========================================================== */
 
-.rsvp-button {
-    color: var(--pink);
+.button.rsvp-button {
+    width: min(90%, 260px);
+    height: auto;
+    min-height: 54px;
+    padding: 14px 20px;
+    margin-top: 32px;
+
+    background: var(--pink);
+    color: white;
+    box-shadow: 0 6px 18px rgba(0,0,0,.12);
 
     text-align: center;
 
@@ -317,15 +334,28 @@ footer h2 {
 }
 
 
+.button.rsvp-button:hover {
+    background: var(--pink-dark);
+    border-color: var(--pink-dark);
+    box-shadow: 0 10px 22px rgba(0,0,0,.16);
+}
+
 /* ==========================================================
    10. SECTIONS
    ========================================================== */
 
 section {
-    padding: 100px 0;
+    padding: 80px 0;
+}
+
+#avenir,
+#rsvp {
+    padding: 64px 0;
 }
 
 section h2 {
+    padding-inline: 16px;
+
     font-family: 'Caveat Brush', cursive;
 
     font-size: clamp(2.3rem, 4vw, 3.2rem);
@@ -336,7 +366,7 @@ section h2 {
 
     text-align: center;
 
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 section p {
@@ -367,7 +397,7 @@ section p {
 
     color: unset;
 
-    margin-bottom: 22px;
+    margin-bottom: 16px;
 
     transition: transform .35s ease;
 }
@@ -409,9 +439,10 @@ section p {
 
     gap: 25px;
 
-    max-width: 1100px;
+    width: 92%;
+    max-width: 1000px;
 
-    margin: 60px auto 0;
+    margin: 36px auto 0;
 }
 
 .item {
@@ -421,7 +452,7 @@ section p {
 
     border-radius: 18px;
 
-    padding: 35px 20px;
+    padding: 28px 16px;
 
     text-align: center;
 
@@ -454,6 +485,8 @@ section p {
 .item small {
     display: block;
 
+    color: white;
+
     text-transform: uppercase;
 
     letter-spacing: 2px;
@@ -482,19 +515,19 @@ section p {
 
     gap: 35px;
 
-    margin-top: 60px;
+    margin-top: 36px;
 }
 
 .card {
     background: white;
 
-    padding: 45px 35px;
+    padding: 36px 28px;
 
     border-radius: 20px;
 
     text-align: center;
 
-    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    box-shadow: 0 6px 20px rgba(0,0,0,.06);
 
     cursor: default;
 
@@ -504,9 +537,9 @@ section p {
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
 
-    box-shadow: 0 22px 45px rgba(0,0,0,.12);
+    box-shadow: 0 10px 24px rgba(0,0,0,.09);
 }
 
 .card i {
@@ -514,7 +547,7 @@ section p {
 
     color: #E91E63;
 
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 
     transition: transform .35s ease;
 }
@@ -532,7 +565,7 @@ section p {
 
     font-weight: 400;
 
-    margin-bottom: 18px;
+    margin-bottom: 12px;
 }
 
 .card p {
@@ -553,9 +586,12 @@ section p {
    ========================================================== */
 
 .map-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
-    margin-top: 20px;
+    margin-top: 16px;
 
     font-family: 'Montserrat', sans-serif;
 
@@ -566,6 +602,12 @@ section p {
     font-weight: 600;
 
     transition: .3s;
+}
+
+.card .map-link i {
+    font-size: 1em;
+    margin-bottom: 0;
+    transform: none;
 }
 
 .map-link:hover {
@@ -844,33 +886,46 @@ footer p {
     }
 
     .countdown {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
 
-        gap: 20px;
+        gap: 16px;
     }
 }
 
 
 /* ==========================================================
-   24. BOUTON DÉCOUVRIR — PETITS PC / TABLETTES
+   24. HERO ET BOUTON DÉCOUVRIR — PETITS PC / TABLETTES
    ========================================================== */
 
 @media (min-width: 769px) and (max-width: 1400px) {
+    #hero {
+        height: auto;
+        min-height: 0;
+    }
+
+    #hero .hero-image {
+        height: auto;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1400px) {
 
     .hero-content {
-        top: 0;
-        bottom: 0;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        position: relative;
+        height: 0;
+        margin: 0 auto;
 
-        height: 100%;
-
-        transform: translateX(-50%);
+        transform: none;
     }
 
     .hero-content .button {
         position: absolute;
 
         left: 50%;
-        bottom: 6%;
+        bottom: 24px;
 
         margin: 0;
 
@@ -927,8 +982,6 @@ footer p {
     /* Hero */
 
     .hero-content {
-        top: 50%;
-
         width: 92%;
     }
 
@@ -955,7 +1008,7 @@ footer p {
     }
 
     .gold-line {
-        margin: 22px auto;
+        margin: 16px auto;
     }
 
     /* Boutons */
@@ -973,7 +1026,12 @@ footer p {
     /* Sections */
 
     section {
-        padding: 70px 0;
+        padding: 56px 0;
+    }
+
+    #avenir,
+    #rsvp {
+        padding: 48px 0;
     }
 
     section h2 {
@@ -983,7 +1041,7 @@ footer p {
     /* Informations */
 
     #infos {
-        padding-top: 70px;
+        padding-top: 56px;
     }
 
     .cards {
@@ -991,7 +1049,7 @@ footer p {
     }
 
     .card {
-        padding: 35px 25px;
+        padding: 28px 22px;
     }
 
     .card h3 {
@@ -1009,7 +1067,8 @@ footer p {
 
         gap: 8px;
 
-        padding: 0 10px;
+        width: 100%;
+        padding: 0 16px;
     }
 
     .item {
@@ -1036,6 +1095,20 @@ footer p {
 
     footer h2 {
         font-size: 3rem;
+    }
+}
+
+
+/* Préserver toute la composition verticale sur tablette. */
+@media (min-width: 481px) and (max-width: 768px) {
+    #hero {
+        height: auto;
+        min-height: 0;
+    }
+
+    #hero picture,
+    #hero .hero-image {
+        height: auto;
     }
 }
 
@@ -1097,7 +1170,9 @@ footer p {
    ========================================================== */
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+.hero-content .button:focus-visible,
+.button.rsvp-button:focus-visible {
     outline: 2px solid #000;
     box-shadow: 0 0 0 4px #fff;
 
