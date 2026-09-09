@@ -511,11 +511,13 @@ section p {
 .cards {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    justify-content: center;
+    max-width: 795px;
 
     gap: 35px;
 
-    margin-top: 36px;
+    margin: 36px auto 0;
 }
 
 .card {
@@ -874,15 +876,6 @@ footer p {
 
     .hero-content h2 {
         font-size: 1.6rem;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-
-        max-width: 650px;
-
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .countdown {
