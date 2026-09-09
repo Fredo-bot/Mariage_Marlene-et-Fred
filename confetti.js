@@ -13,7 +13,7 @@ const colors = [
 
 const NUMBER_OF_CONFETTI = 35;
 
-for (let i = 0; i < NUMBER_OF_CONFETTI; i++) {
+for (let i = 0; container && i < NUMBER_OF_CONFETTI; i++) {
 
     const confetti = document.createElement("div");
 
