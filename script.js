@@ -21,6 +21,8 @@ const navigation = document.querySelector("nav");
 
 window.addEventListener("scroll", function () {
 
+    if (!navigation) return;
+
     if (window.scrollY > 80) {
 
         navigation.classList.add("nav-scroll");
@@ -42,10 +44,10 @@ window.addEventListener("scroll", function () {
    Date du mariage
 
    Format :
-   année, mois (janvier = 0), jour, heure, minute, seconde
+   ISO 8601 : 13 h 30 en France (Europe/Paris, UTC+02:00 à cette date)
 */
 
-const weddingDate = new Date(2027, 8, 18, 15, 0, 0);
+const weddingDate = new Date("2027-09-18T13:30:00+02:00");
 
 
 /* ==========================================================
@@ -73,7 +75,14 @@ function format(value) {
    MISE A JOUR DU COMPTE A REBOURS
    ========================================================== */
 
+let countdownInterval = null;
+
 function updateCountdown() {
+
+    if (!days || !hours || !minutes || !seconds) {
+        clearInterval(countdownInterval);
+        return false;
+    }
 
     const now = new Date();
 
@@ -86,7 +95,8 @@ function updateCountdown() {
         minutes.textContent = "00";
         seconds.textContent = "00";
 
-        return;
+        clearInterval(countdownInterval);
+        return false;
 
     }
 
@@ -124,11 +134,13 @@ function updateCountdown() {
 
     seconds.textContent = format(totalSeconds);
 
+    return true;
+
 }
 
-updateCountdown();
-
-setInterval(updateCountdown, 1000);
+if (updateCountdown()) {
+    countdownInterval = setInterval(updateCountdown, 1000);
+}
 
 
 /* ==========================================================
@@ -136,6 +148,8 @@ setInterval(updateCountdown, 1000);
    ========================================================== */
 
 const sections = document.querySelectorAll("section");
+
+if ("IntersectionObserver" in window) {
 
 const observer = new IntersectionObserver(
 
@@ -169,6 +183,8 @@ sections.forEach(function (section) {
 
 });
 
+}
+
 
 /* ==========================================================
    SCROLL FLUIDE
@@ -180,19 +196,21 @@ links.forEach(function (link) {
 
     link.addEventListener("click", function (event) {
 
-        event.preventDefault();
+        const target = document.getElementById(
 
-        const target = document.querySelector(
-
-            this.getAttribute("href")
+            this.getAttribute("href").slice(1)
 
         );
 
         if (target) {
 
+            event.preventDefault();
+
             target.scrollIntoView({
 
-                behavior: "smooth"
+                behavior: window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                    ? "instant"
+                    : "smooth"
 
             });
 
