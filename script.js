@@ -44,10 +44,10 @@ window.addEventListener("scroll", function () {
    Date du mariage
 
    Format :
-   ISO 8601 : 15 h en France (Europe/Paris, UTC+02:00 à cette date)
+   ISO 8601 : 13 h 30 en France (Europe/Paris, UTC+02:00 à cette date)
 */
 
-const weddingDate = new Date("2027-09-18T15:00:00+02:00");
+const weddingDate = new Date("2027-09-18T13:30:00+02:00");
 
 
 /* ==========================================================
