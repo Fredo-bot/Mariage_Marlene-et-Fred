@@ -221,4 +221,21 @@ links.forEach(function (link) {
 });
 
 
+const selectionButton = document.getElementById("selection-hebergements");
+const selectionInfo = document.getElementById("selection-hebergements-info");
+const selectionLink = document.getElementById("selection-hebergements-pdf")
+    .content.querySelector("a");
+
+fetch(selectionLink.getAttribute("href"), { method: "HEAD", cache: "no-cache" })
+    .then(function (response) {
+        const contentType = response.headers.get("Content-Type") || "";
+        if (response.ok && /^application\/pdf(?:\s*;|$)/i.test(contentType)) {
+            selectionButton.replaceWith(selectionLink);
+            selectionInfo.textContent = "PDF récapitulatif de 10 établissements.";
+        }
+    })
+    .catch(function () {
+        // En cas d’échec, le bouton reste désactivé.
+    });
+
 console.log("✔ Site du mariage chargé");
