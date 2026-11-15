@@ -231,7 +231,7 @@ fetch(selectionLink.getAttribute("href"), { method: "HEAD", cache: "no-cache" })
         const contentType = response.headers.get("Content-Type") || "";
         if (response.ok && /^application\/pdf(?:\s*;|$)/i.test(contentType)) {
             selectionButton.replaceWith(selectionLink);
-            selectionInfo.textContent = "PDF récapitulatif de 10 établissements.";
+            selectionInfo.textContent = "Une liste de 10 établissements à proximité est disponible en PDF.";
         }
     })
     .catch(function () {
