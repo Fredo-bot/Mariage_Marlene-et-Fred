@@ -621,6 +621,45 @@ section p {
    17. À VENIR
    ========================================================== */
 
+#ou-dormir {
+    scroll-margin-top: 80px;
+}
+
+.hebergements-selection {
+    max-width: 795px;
+    margin: 36px auto 0;
+}
+
+.button.hebergements-button {
+    width: fit-content;
+    max-width: 100%;
+    height: auto;
+    min-height: 44px;
+    margin: 16px auto;
+    padding: 10px 20px;
+    background: var(--pink-dark);
+    border-color: var(--pink-dark);
+    font: inherit;
+    line-height: 1.4;
+}
+
+.button.hebergements-button:disabled {
+    background: #f7f6f2;
+    border-color: #d4d0ca;
+    color: #595959;
+    box-shadow: none;
+    transform: none;
+}
+
+.hebergements-liens a {
+    display: inline-block;
+    padding: 8px 0;
+    color: var(--pink-dark);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 #avenir {
     background: #F2B705;
 }
